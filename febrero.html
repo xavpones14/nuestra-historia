@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Febrero - Nuestra Historia</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+        body {
+            font-family: 'Dancing Script', cursive;
+            background-color: #ffe4e1;
+            text-align: center;
+            color: red;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow-y: auto; /* Habilitar barra de desplazamiento vertical */
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-top: 50px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 50px;
+            margin-bottom: 50px; /* Espacio al final para evitar que el contenido quede pegado */
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 24px;
+            border: none;
+            background-color: #ffb6c1;
+            color: white;
+            cursor: pointer;
+            border-radius: 15px;
+            transition: background 0.3s;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        button:hover {
+            background-color: #ff69b4;
+        }
+
+        .carta {
+            font-size: 24px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Febrero</h1>
+    <div class="buttons">
+        <button onclick="window.location.href = 'fotos-febrero.html'">Nuestras Fotos</button>
+        <button onclick="window.location.href = 'san-valentin.html'">San Valentín</button>
+        <button onclick="mostrarCarta()">Para ti</button>
+        <button onclick="window.location.href = 'index.html'">Regresar al Menú</button>
+    </div>
+    <div id="carta" class="carta" style="display: none;">
+        <p>Mi preciosa Feer,</p>
+        <p>Hoy cumplimos dos meses juntos, y aunque pueda parecer poco tiempo, para mí ha sido suficiente para darme cuenta de lo mucho que significas en mi vida. Desde el momento en que nuestras miradas se cruzaron por primera vez, supe que algo especial estaba por comenzar. Y ahora, después de 2 meses a tu lado, no hay un solo instante en el que no agradezca haber tomado tu mano.</p>
+        <p>Cada día contigo es un nuevo descubrimiento. Me fascina la forma en que sonríes cuando algo te emociona, cómo tu voz suena llena de dulzura cuando hablas de lo que amas, y la paz que me transmites cuando me miras con esos ojos que parecen abrazarme sin necesidad de palabras.</p>
+        <p>En estos dos meses hemos compartido risas, secretos, abrazos que me hacen sentir en casa, y momentos que ya guardo en mi corazón. Me encanta cómo el tiempo vuela cuando estoy contigo, y a la vez, cómo cada segundo se siente eterno cuando te tengo en mis brazos.</p>
+        <p>Gracias, por ser como eres. Por cada detalle, por cada palabra bonita, por cada caricia llena de ternura. No hay nada en este mundo que desee más que seguir sumando meses, momentos y memorias contigo. Porque si en dos meses ya me has hecho tan feliz, no puedo imaginar lo hermoso que será todo lo que nos espera.</p>
+        <p>Feliz segundo mes, mi vida. Te amo.</p>
+        <p>Siempre tuyo,<br>Xavier</p>
+    </div>
+
+    <script>
+        // Función para mostrar la carta
+        function mostrarCarta() {
+            document.getElementById('carta').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

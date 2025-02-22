@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+        
+        body {
+            font-family: 'Dancing Script', cursive;
+            background-color: #ffe4e1;
+            text-align: center;
+            transition: opacity 1s ease-in-out;
+            position: relative;
+        }
+        h1, p {
+            color: red;
+            font-size: 40px;
+            text-align: center;
+        }
+        p {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .poema {
+            font-size: 48px;
+            font-weight: bold;
+            line-height: 1.6;
+            margin: 20px auto;
+            max-width: 80%;
+        }
+        .container {
+            display: none;
+            margin-top: 100px;
+        }
+        .buttons {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            background-color: #ffb6c1;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #ff69b4;
+        }
+        .boton-aceptar {
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #ff1493;
+            padding: 15px 30px;
+            border-radius: 15px;
+            animation: latido 1.5s infinite;
+            margin-top: 30px;
+        }
+        @keyframes latido {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: purple;
+            opacity: 0.7;
+            clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 80%, 20% 100%, 0% 35%);
+            animation: float 5s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+        .music-container {
+            display: none;
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+        }
+        .mensaje {
+            font-size: 36px;
+            font-weight: bold;
+            color: red;
+            margin-bottom: 20px;
+        }
+        .boton-regresar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            background-color: #ff1493;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+        .boton-regresar:hover {
+            background-color: #ff69b4;
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts"></div>
+    
+    <!-- Botón para regresar al menú principal -->
+    <button class="boton-regresar" onclick="window.location.href = 'index.html'">Regresar al Menú</button>
+    
+    <div class="buttons">
+        <button onclick="irAPantalla(1)">Inicio</button>
+        <button onclick="siguientePantalla()">Siguiente</button>
+        <button onclick="anteriorPantalla()">Atrás</button>
+    </div>
+    
+    <div id="pantalla1" class="container">
+        <h1>HOLA MI HERMOSA FEER</h1>
+    </div>
+    
+    <div id="pantalla2" class="container">
+        <h1>PERDÓN POR HACERLO HASTA AHORA</h1>
+    </div>
+    
+    <div id="pantalla3" class="container">
+        <h1>Eres la cosa más hermosa que tengo...</h1>
+        <p class="poema">Eres la cosa más hermosa que tengo,</p>
+        <p class="poema">y con cada segundo que pasa me doy cuenta</p>
+        <p class="poema">de lo afortunado que soy de tenerte en mi vida.</p>
+        <p class="poema">Gracias por estar conmigo y darme tanto amor día con día.</p>
+        <p class="poema">Te amo con todo mi corazón.</p>
+    </div>
+    
+    <div id="pantalla4" class="container">
+        <h1>¿Quieres ser mi San Valentín? 💖</h1>
+        <button class="boton-aceptar" onclick="aceptar()">Sí</button>
+    </div>
+
+    <div id="music" class="music-container">
+        <p class="mensaje">ERES LA ÚNICA QUE QUIERO, CREO QUE SOY ADICTO A TU LUZ</p>
+        <iframe id="musicPlayer" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/arianagrande/ariana-grande-daydreamin-live&auto_play=false"></iframe>
+    </div>
+    
+    <script>
+        let pantallaActual = 1;
+        function irAPantalla(nuevaPantalla) {
+            document.getElementById('pantalla' + pantallaActual).style.display = 'none';
+            document.getElementById('pantalla' + nuevaPantalla).style.display = 'block';
+            pantallaActual = nuevaPantalla;
+        }
+        function siguientePantalla() {
+            if (pantallaActual < 4) {
+                irAPantalla(pantallaActual + 1);
+            }
+        }
+        function anteriorPantalla() {
+            if (pantallaActual > 1) {
+                irAPantalla(pantallaActual - 1);
+            }
+        }
+        function aceptar() {
+            document.getElementById('music').style.display = 'block';
+            let musicPlayer = document.getElementById('musicPlayer');
+            let src = musicPlayer.src;
+            musicPlayer.src = src + "&auto_play=true";
+            alert('GRACIAS POR ESTAR CONMIGO, TE AMO');
+        }
+        document.getElementById('pantalla1').style.display = 'block';
+        
+        function crearCorazones() {
+            for (let i = 0; i < 30; i++) {
+                let heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                document.querySelector('.hearts').appendChild(heart);
+                setTimeout(() => heart.remove(), 5000);
+            }
+        }
+        setInterval(crearCorazones, 1000);
+    </script>
+</body>
+</html>
